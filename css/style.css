@@ -1,0 +1,163 @@
+root {
+  --bg: #0b0b0b;
+  --glass: rgba(255,255,255,0.08);
+  --gold: #f5b301;
+  --text: #eaeaea;
+  --blur: blur(16px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1405, #000);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* UTIL */
+span { color: var(--gold); }
+.section { padding: 5rem 8vw; }
+h1, h2 { font-weight: 700; }
+
+/* GLASS */
+.glass {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  margin: 1.5rem;
+}
+
+.nav nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #bbb;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--gold);
+}
+
+/* HERO */
+.hero {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8vw;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero p {
+  margin: 1rem 0 2rem;
+  max-width: 420px;
+  opacity: 0.8;
+}
+
+/* FLOATING IMAGE */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+.product {
+  width: 280px;
+  filter: drop-shadow(0 0 40px rgba(245,179,1,0.35));
+}
+
+/* CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.price {
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 2.5rem;
+  position: relative;
+  width: 320px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
+}
