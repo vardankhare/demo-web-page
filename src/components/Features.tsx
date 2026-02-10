@@ -1,71 +1,106 @@
 import { motion } from 'framer-motion';
 import { Zap, Shield, Brain, Activity, Droplets, Target } from 'lucide-react';
 
-const FeatureCard = ({ icon: Icon, title, className = "", delay = 0 }: any) => (
+const FeatureCard = ({ icon: Icon, title, description, delay = 0 }: any) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.6, delay }}
-    className={`group relative glass-dark rounded-3xl aspect-square p-6 overflow-hidden border border-white/5 hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-center text-center ${className}`}
+    transition={{ duration: 0.5, delay }}
+    className="group relative glass-dark rounded-[2.5rem] aspect-square p-8 overflow-hidden border border-white/5 transition-all duration-500 flex flex-col items-center justify-center text-center"
   >
-    <div className="absolute inset-0 noise opacity-5 group-hover:opacity-10 transition-opacity" />
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-primary/20 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+    
     <div className="relative z-10 flex flex-col items-center">
-      <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all duration-300">
-        <Icon className="w-8 h-8 text-primary transition-transform duration-500 group-hover:scale-110" />
+      <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+        <Icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-500" />
       </div>
-      <h3 className="text-xl md:text-2xl font-display font-bold leading-tight px-2">{title}</h3>
+      <h3 className="text-xl md:text-2xl font-display font-bold leading-tight mb-3 group-hover:text-primary transition-colors duration-300">
+        {title}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px]">
+        {description}
+      </p>
     </div>
+
+    {/* Subtle flare accent */}
+    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
   </motion.div>
 );
 
 export const Features = () => {
+  const features = [
+    {
+      icon: Brain,
+      title: "Cognitive Optimization",
+      description: "Enhance neural pathways for maximum clarity and deep focus.",
+      delay: 0.1
+    },
+    {
+      icon: Zap,
+      title: "Metabolic Acceleration",
+      description: "Optimize energy conversion rates for sustained physical performance.",
+      delay: 0.2
+    },
+    {
+      icon: Shield,
+      title: "Immune Fortification",
+      description: "Strengthen biological defenses with advanced molecular shielding tech.",
+      delay: 0.3
+    },
+    {
+      icon: Activity,
+      title: "Real-time Monitoring",
+      description: "Instant biometric feedback loop for precise performance adjustments.",
+      delay: 0.4
+    },
+    {
+      icon: Droplets,
+      title: "Cellular Hydration",
+      description: "Deep-level osmotic balance for peak mitochondrial efficiency.",
+      delay: 0.5
+    },
+    {
+      icon: Target,
+      title: "Precision Targeting",
+      description: "Direct nutrient delivery to targeted biological systems.",
+      delay: 0.6
+    }
+  ];
+
   return (
-    <section className="py-24 px-6 relative" id="research">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6">
+    <section className="py-32 px-6 relative overflow-hidden" id="research">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-8"
+          >
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-bold tracking-widest uppercase">Research Phase v2.0</span>
+          </motion.div>
+          <h2 className="text-5xl md:text-8xl font-display font-bold leading-tight mb-8">
             ENGINEERED <br />
-            <span className="text-primary">SUPREMACY.</span>
+            <span className="text-primary italic">SUPREMACY.</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Clinical breakthroughs. Biological upgrades. AI molecular modeling.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            Pushing the boundaries of human potential through clinical breakthroughs and AI molecular modeling.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          <FeatureCard 
-            icon={Brain}
-            title="Cognitive Focus"
-            delay={0.1}
-          />
-          <FeatureCard 
-            icon={Zap}
-            title="Metabolic Peak"
-            delay={0.2}
-          />
-          <FeatureCard 
-            icon={Shield}
-            title="Immune Shield"
-            delay={0.3}
-          />
-          <FeatureCard 
-            icon={Activity}
-            title="Bio Monitoring"
-            delay={0.4}
-          />
-          <FeatureCard 
-            icon={Droplets}
-            title="Cell Hydration"
-            delay={0.5}
-          />
-          <FeatureCard 
-            icon={Target}
-            title="Precision Targeting"
-            delay={0.6}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
         </div>
       </div>
+
+      {/* Background Decor */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full -z-10" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full -z-10" />
     </section>
   );
 };

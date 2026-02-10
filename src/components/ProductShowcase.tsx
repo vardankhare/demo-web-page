@@ -8,7 +8,7 @@ const products = [
     name: "Focus Core v2",
     tagline: "Neuro-Optimized Nootropic",
     price: "$64.00",
-    image: "https://v3b.fal.media/files/b/0a8deb25/P52zRciObI0LO4IAlxEQg.png",
+    image: "https://v3b.fal.media/files/b/0a8deb5b/_Kt3uPSt84ZQTivb2albl.png",
     rating: 4.9,
     color: "from-primary/20 to-transparent"
   },
@@ -17,7 +17,7 @@ const products = [
     name: "Pure Protein Elite",
     tagline: "Bio-Available Whey Isolate",
     price: "$89.00",
-    image: "https://v3b.fal.media/files/b/0a8deb25/46BAGo2ZR2xZDBvcgc2Wx.png",
+    image: "https://v3b.fal.media/files/b/0a8deb5b/V1ipMBprnyKYl0O-atqZO.png",
     rating: 5.0,
     color: "from-amber-500/20 to-transparent"
   },
@@ -26,7 +26,7 @@ const products = [
     name: "Cellular Repair",
     tagline: "Night Recovery Complex",
     price: "$52.00",
-    image: "https://v3b.fal.media/files/b/0a8deb25/hvWUJLFvmuWvXBjKqQJWG.png",
+    image: "https://v3b.fal.media/files/b/0a8deb5b/DuL99wXRrdmwthL5SFjuf.png",
     rating: 4.8,
     color: "from-primary/20 to-transparent"
   }
@@ -55,11 +55,11 @@ export const ProductShowcase = () => {
             >
               <div className={`absolute inset-0 bg-gradient-to-b ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
-              <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-white/5 mb-8 flex items-center justify-center p-8">
+              <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-white/5 mb-8 flex items-center justify-center">
                 <motion.img 
                   src={product.image} 
                   alt={product.name} 
-                  className="w-full max-w-[200px] h-auto object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-700"
+                  className="w-[80%] h-[80%] object-contain group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute top-6 left-6 flex items-center gap-1 glass px-3 py-1 rounded-full">
                   <Star className="w-3 h-3 text-primary fill-primary" />
