@@ -4,48 +4,49 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-black xl:py-32">
       {/* Background elements removed for pure black high-contrast look */}
       
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="xl:max-w-2xl"
         >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-8"
           >
             <span className="w-2 h-2 bg-primary rounded-full animate-ping" />
-            <span className="text-xs font-bold tracking-widest uppercase text-primary">New Formula v2.0 Released</span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary">New Formula v2.0 Released</span>
           </motion.div>
           
-          <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.9] tracking-tighter mb-8">
+          <h1 className="text-6xl md:text-8xl xl:text-9xl font-display font-bold leading-[0.85] tracking-tighter mb-10">
             UNLOCK YOUR <br />
             <span className="text-primary text-glow">ULTIMATE</span> <br />
             POTENTIAL.
           </h1>
           
-          <p className="text-lg text-muted-foreground max-w-lg mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-12 leading-relaxed opacity-80">
             Engineered by world-class nutritionists and AI-driven research. 
             The elite choice for high-performers, builders, and elite athletes.
           </p>
           
-          <div className="flex flex-wrap items-center gap-6">
-            <Button size="lg" className="rounded-full px-8 py-7 text-lg font-bold shadow-glow hover:scale-105 transition-transform group">
+          <div className="flex flex-wrap items-center gap-6 mb-16">
+            <Button size="lg" className="rounded-full px-10 py-8 text-lg font-bold shadow-glow hover:scale-105 active:scale-95 transition-all group">
               Shop Now
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="rounded-full px-8 py-7 text-lg font-bold border-white/10 hover:bg-white/5 group">
+            <Button variant="outline" size="lg" className="rounded-full px-10 py-8 text-lg font-bold border-white/10 hover:bg-white/5 active:scale-95 transition-all group">
               <Play className="mr-2 fill-current" />
               Watch Story
             </Button>
           </div>
 
-          <div className="mt-12 flex items-center gap-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+          <div className="flex items-center gap-8 lg:gap-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all">
             <div className="flex flex-col">
               <span className="text-3xl font-display font-bold">200+</span>
               <span className="text-xs uppercase tracking-widest text-muted-foreground">Athletes</span>
@@ -67,12 +68,15 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center min-h-[500px]"
         >
+          {/* Hero Premium Glow */}
+          <div className="hero-glow" />
+          
           <motion.img 
             src="https://v3b.fal.media/files/b/0a8e0f7a/ldEhHOd1zRDtI6M5lJp3W.png" 
             alt="Key Supplement Bottle" 
-            className="w-full max-w-md z-10"
+            className="w-full max-w-md xl:max-w-lg z-10"
             animate={{ 
               y: [0, -20, 0],
               rotate: [0, 2, 0]

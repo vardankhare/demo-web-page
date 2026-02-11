@@ -34,32 +34,37 @@ const products = [
 
 export const ProductShowcase = () => {
   return (
-    <section className="py-24 px-6" id="products">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">CURATED FOR <span className="text-primary">ELITES.</span></h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    <section className="py-24 px-6 xl:py-40" id="products">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="text-center mb-24 lg:mb-32">
+          <h2 className="text-5xl md:text-6xl xl:text-7xl font-display font-bold mb-8">CURATED FOR <span className="text-primary">ELITES.</span></h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-70">
             Small batches. Maximum potency. Designed for those who demand more from their biology.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                y: -10,
+                scale: 1.04,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative flex flex-col glass-dark rounded-[3rem] p-4 overflow-hidden"
+              className="group relative flex flex-col glass-dark rounded-[3.5rem] p-5 overflow-hidden border border-white/5 hover:border-primary/20 hover:shadow-[0_20px_50px_rgba(255,215,0,0.05)] transition-colors duration-500"
             >
-              <div className={`absolute inset-0 bg-gradient-to-b ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-b ${product.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
               
-              <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-[#000000] mb-8 flex items-center justify-center border border-white/5">
+              <div className="relative aspect-square rounded-[2.8rem] overflow-hidden bg-[#000000] mb-8 flex items-center justify-center border border-white/5 group-hover:border-primary/10 transition-colors">
                 <motion.img 
                   src={product.image} 
                   alt={product.name} 
-                  className="w-[85%] h-[85%] object-contain transition-transform duration-700"
+                  className="w-[85%] h-[85%] object-contain transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-6 left-6 flex items-center gap-1 glass px-3 py-1 rounded-full">
                   <Star className="w-3 h-3 text-primary fill-primary" />
