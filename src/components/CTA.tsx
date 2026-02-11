@@ -6,13 +6,19 @@ import { Mail, CheckCircle2 } from 'lucide-react';
 export const CTA = () => {
   return (
     <section className="py-24 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full max-h-[400px] bg-primary/20 blur-[150px] rounded-full" />
+      <motion.div 
+        initial={{ opacity: 0.2, scale: 0.8 }}
+        whileInView={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full max-h-[400px] bg-primary/20 blur-[150px] rounded-full" 
+      />
       
       <div className="max-w-5xl mx-auto glass-dark rounded-[4rem] p-12 md:p-20 relative z-10 text-center border-primary/20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
             JOIN THE <br />
@@ -31,9 +37,15 @@ export const CTA = () => {
                 className="bg-white/5 border-white/10 h-16 pl-12 rounded-full focus:ring-primary focus:border-primary text-lg"
               />
             </div>
-            <Button className="h-16 px-10 rounded-full text-lg font-bold shadow-glow hover:scale-105 transition-transform">
-              Join Now
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button className="h-16 px-10 rounded-full text-lg font-bold shadow-glow transition-all duration-300 relative group overflow-hidden">
+                <span className="relative z-10">Join Now</span>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </Button>
+            </motion.div>
           </form>
 
           <div className="flex flex-wrap justify-center gap-8 opacity-60">

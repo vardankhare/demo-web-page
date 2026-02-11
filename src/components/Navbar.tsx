@@ -24,13 +24,15 @@ export const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {['Products', 'Research', 'About', 'Contact'].map((item) => (
-            <a 
+            <motion.a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+              whileHover={{ y: -2 }}
             >
               {item}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </motion.a>
           ))}
         </div>
 
@@ -38,8 +40,9 @@ export const Navbar = () => {
           <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
             <ShoppingCart className="w-5 h-5" />
           </Button>
-          <Button className="hidden md:flex rounded-full px-6 font-bold shadow-glow hover:scale-105 transition-transform">
-            Get Started
+          <Button className="hidden md:flex rounded-full px-6 font-bold shadow-glow hover:scale-105 active:scale-95 transition-all relative group overflow-hidden">
+            <span className="relative z-10">Get Started</span>
+            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </Button>
           <button 
             className="md:hidden text-foreground"

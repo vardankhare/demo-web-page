@@ -1,11 +1,24 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 
 export const Hero = () => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-black xl:py-32">
-      {/* Background elements removed for pure black high-contrast look */}
+      {/* Background elements for subtle parallax */}
+      <motion.div 
+        style={{ y: y1 }}
+        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"
+      />
       
       <div className="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
         <motion.div
@@ -81,6 +94,7 @@ export const Hero = () => {
               y: [0, -20, 0],
               rotate: [0, 2, 0]
             }}
+            style={{ y: useTransform(scrollY, [0, 500], [0, 20]) }}
             transition={{ 
               duration: 5, 
               repeat: Infinity, 
@@ -111,9 +125,13 @@ export const Hero = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        style={{ opacity }}
         transition={{ delay: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        onClick={() => {
+          const productsSection = document.getElementById('products');
+          productsSection?.scrollIntoView({ behavior: 'smooth' });
+        }}
       >
         <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground">Explore</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />

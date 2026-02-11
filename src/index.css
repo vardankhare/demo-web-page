@@ -6,7 +6,8 @@
 
 @layer base {
   :root {
-    /* ⚠️ AGENT MUST REPLACE: These are placeholder colors. You MUST define a custom palette before writing components. */
+    scroll-behavior: smooth;
+    /* ... existing code ... */
     /* The template uses distinctive placeholder colors to force customization - do NOT use these in production! */
     
     /* 

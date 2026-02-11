@@ -33,29 +33,61 @@ const products = [
 ];
 
 export const ProductShowcase = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    }
+  };
+
   return (
     <section className="py-24 px-6 xl:py-40" id="products">
       <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-24 lg:mb-32">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24 lg:mb-32"
+        >
           <h2 className="text-5xl md:text-6xl xl:text-7xl font-display font-bold mb-8">CURATED FOR <span className="text-primary">ELITES.</span></h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto opacity-70">
             Small batches. Maximum potency. Designed for those who demand more from their biology.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {products.map((product, i) => (
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+        >
+          {products.map((product) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={itemVariants}
               whileHover={{ 
                 y: -10,
-                scale: 1.04,
+                scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="group relative flex flex-col glass-dark rounded-[3.5rem] p-5 overflow-hidden border border-white/5 hover:border-primary/20 hover:shadow-[0_20px_50px_rgba(255,215,0,0.05)] transition-colors duration-500"
             >
               <div className={`absolute inset-0 bg-gradient-to-b ${product.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
@@ -92,7 +124,7 @@ export const ProductShowcase = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
