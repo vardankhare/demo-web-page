@@ -4,14 +4,9 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-black">
+      {/* Background elements removed for pure black high-contrast look */}
       
-      {/* Dynamic Grid Background */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -74,11 +69,10 @@ export const Hero = () => {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="relative flex items-center justify-center"
         >
-          <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
           <motion.img 
-            src="https://v3b.fal.media/files/b/0a8deb25/P52zRciObI0LO4IAlxEQg.png" 
+            src="https://v3b.fal.media/files/b/0a8e0f7a/ldEhHOd1zRDtI6M5lJp3W.png" 
             alt="Key Supplement Bottle" 
-            className="w-full max-w-md drop-shadow-[0_35px_35px_rgba(255,215,0,0.3)] z-10"
+            className="w-full max-w-md z-10"
             animate={{ 
               y: [0, -20, 0],
               rotate: [0, 2, 0]

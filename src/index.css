@@ -34,11 +34,11 @@
      */
     
     /* Colors - REPLACE ALL VALUES BELOW with your custom palette */
-    --background: 0 0% 2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 4%;
+    --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    --popover: 0 0% 2%;
     --popover-foreground: 0 0% 98%;
     /* ⚠️ PLACEHOLDER: Replace with your custom primary color (NOT green, NOT blue) */
     --primary: 48 100% 50%;
@@ -98,11 +98,11 @@
 
   .dark {
     /* ⚠️ AGENT MUST REPLACE: Dark mode colors - replace with your custom dark palette */
-    --background: 0 0% 2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 4%;
+    --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    --popover: 0 0% 2%;
     --popover-foreground: 0 0% 98%;
     /* ⚠️ PLACEHOLDER: Replace with your custom dark mode primary color */
     --primary: 48 100% 50%;
